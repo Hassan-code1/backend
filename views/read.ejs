@@ -20,10 +20,10 @@
                     <div class="w-full h-52 bg-red-500 rounded-lg overflow-hidden" aria-label="User avatar placeholder">
                         <img class="w-full h-full object-cover" src="<%=user.image %>" alt="<%= user.name %>">
                     </div>
-                    <h3 class="text-xl tracking-tighter mt-3"><%= user.name %>></h3>
+                    <h3 class="text-xl tracking-tighter mt-3"><%= user.name %></h3>
                     <h5 class="text-zinc-500"><%= user.email %></h5>
                     <div class="flex gap-3 mt-10">
-                        <a class="text-zinc-200" href="/update">Edit User</a>
+                        <a class="text-zinc-200" href="/edit/<%= user._id %>">Edit User</a>
                         <a class="text-red-500" href="/delete/<%= user._id %>">Delete User</a>
                     </div>
                 </div>

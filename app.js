@@ -33,9 +33,17 @@ app.get("/delete/:id", async (req, res) => {
     res.redirect('/read')
 })
 
-app.get("/update", (req, res) => {
-    res.send("Working")
+app.get("/edit/:userid", async (req, res) => {
+    let user = await userModel.findOne({_id: req.params.userid});
+    res.render("edit", {user});
 })
+
+app.post("/update/:userid", async (req, res) => {
+    let {image, name, email} = req.body;
+    let user = await userModel.findOneAndUpdate({_id: req.params.userid}, {name, email, image});
+    res.redirect("/read");
+})
+
 // app.get('/create', async (req, res) => {
 //     let createduser = await userModel.create({
 //         name: "Hassan",
